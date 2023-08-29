@@ -53,7 +53,7 @@ import '../App.css';
     }
     return (
         <div className='flex items-center justify-center font-poppins'>
-        <div className="m-[10%] w-[100%] border bg-gradient-to-br from-pink-300 to-blue-400/70 shadow-2xl rounded-2xl p-5">
+        <div className="m-[5%] h-[40rem] w-[100%] border bg-gradient-to-br from-pink-300 to-blue-400/70 shadow-2xl rounded-2xl p-5">
             <div className="grid grid-cols-[1fr_5fr]">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                    <DateCalendar  />
@@ -63,39 +63,34 @@ import '../App.css';
                         <Box >
                             <TabList onChange={handleChange}>
                                 <Tab label="Todo" value="1"/>
-                                <Tab label="In Progress" value="2"/>
-                                <Tab label="Completed" value="3"/>
                             </TabList>
                         </Box>
                         <TabPanel value="1" className='flex flex-col items-start'>
                         <form className='' onSubmit={handleSubmit} >
-                            <input type="text" id="item" value={newItem}  onChange={(e)=>setNewItem(e.target.value)} className='border-b-2 border-gray-500 font-poppins outline-none bg-inherit mr-3'/>
+                            <input type="text" id="item" autoComplete='off' value={newItem}  onChange={(e)=>setNewItem(e.target.value)} className='border-b-2 border-gray-500 font-poppins outline-none bg-inherit mr-3'/>
                                 <button className='border border-cyan-950 px-2  rounded-md'>+</button>
                             </form>
                             <br/>
                             <div className=''>
                                 <h1>Todo List</h1>
-                                <ul className='todo-list'>
-                                
-                                {
-                                    todos.map((todo)=>
+                                    <ul className='grid grid-cols-[repeat(6,1fr)] gap-2 overflow-y-scroll scrollbar-hidden h-[25em]'>
+                                    
                                     {
-                                        return <li className='font-poppins border bg-white rounded-lg shadow-md p-3 m-2 w-full flex justify-between todo-item ' key={todo.id}>
-                                            <label className='flex items-center'>
-                                                <input type='checkbox' className='mx-2' checked={todo.completed} onChange={e=>toggleTodo(todo.id,e.target.checked)}/>{todo.title}
-                                            </label>
-                                            <button className='mx-2' onClick={()=>deleteTodo(todo.id)}>
-                                                <CloseSharpIcon/>
-                                            </button>
-                                        </li>
-                                    })
-                                }
-                                </ul>
-                            </div>
+                                        todos.map((todo)=>
+                                        {
+                                             return <li className='font-poppins border w-min bg-white rounded-lg shadow-md p-3 m-2 h-min flex justify-between todo-item ' key={todo.id}>
+                                                <label className='flex items-center w-[25] overflow-hidden'>
+                                                    <input type='checkbox' className='mx-2' checked={todo.completed} onChange={e=>toggleTodo(todo.id,e.target.checked)}/>{todo.title}
+                                                </label>
+                                                <button className='mx-2' onClick={()=>deleteTodo(todo.id)}>
+                                                    <CloseSharpIcon/>
+                                                </button>
+                                            </li>
+                                        })
+                                    }
+                                    </ul>
+                                </div>
                         </TabPanel>
-                        <TabPanel value="2">Item two</TabPanel>
-                        <TabPanel value="3">Item three</TabPanel>
-
                     </TabContext>
             </div>
             </div>
