@@ -1,24 +1,7 @@
-.todo-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 6px; /* Adjust as needed */
-  list-style:circle;
-  padding: 0;
-  margin: 0;
+.scrollbar-hidden::-webkit-scrollbar{
+    width: 0;
+    background: transparent;
 }
-
-.todo-item {
-  border: 1px solid #ccc;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.todo-item label {
-  display: flex;
-  align-items: center;
+.scrollbar-hidden::-webkit-scrollbar-thumb{
+    background: transparent;
 }
