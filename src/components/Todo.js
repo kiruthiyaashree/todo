@@ -78,7 +78,7 @@ import '../App.css';
                                     {
                                         todos.map((todo)=>
                                         {
-                                             return <li className='font-poppins border w-min bg-white rounded-lg shadow-md p-3 m-2 h-min flex justify-between todo-item ' key={todo.id}>
+                                             return <li className='font-poppins border w-min bg-gray-300/50 backdrop-blur-xl rounded-lg shadow-md p-3 m-2 h-min flex justify-between todo-item ' key={todo.id}>
                                                 <label className='flex items-center w-[25] overflow-hidden'>
                                                     <input type='checkbox' className='mx-2' checked={todo.completed} onChange={e=>toggleTodo(todo.id,e.target.checked)}/>{todo.title}
                                                 </label>
